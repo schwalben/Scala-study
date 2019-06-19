@@ -1,13 +1,13 @@
 object CalcPractice extends App { 
 
-  println(s"sum1ToNum(10): ${sum1ToNum(10)}")
+  println(s"sum1ToNum(10): ${sum1ToNum(-10, 0)}")
   
-  def sum1ToNum(num: Int): Int = {
+  def sum1ToNum(num: Int, sum: Int = 0): Int = {
 
     if (num <= 1) {
-      return num
+      return if (num <= 0) num else sum + 1
     }
-    return num + sum1ToNum(num - 1)
+    return sum1ToNum(num - 1, sum + num)
   }
 
   def addThenMultiply(x: Int, y: Int)(multiplier: Int): Int = (x + y) * multiplier
